@@ -1,0 +1,85 @@
+@projectid=3eb9edcc-281e-11ec-8cb7-c2eab8cf0f30
+@token=dwrh58r043h0r1oai6tu58hf4nyouivd6pff455xljf2lxgbpburtxcbdnp4opqm
+@baseurl=https://api-demoapp.exponea.com
+
+
+### REGISTRATION - BACKEND CALL
+POST {{baseurl}}/track/v2/projects/{{projectid}}/customers/events
+Accept: application/json'
+Authorization: Token {{token}}
+Content-type: application/json
+
+{
+     "customer_ids": {
+          "registered": "jiri.stepan@etnetera.cz"
+     },
+     "properties": {
+        "first_name": "jirka",
+        "last_name": "STEPan"
+     },
+     "event_type": "user_registration"
+}
+
+
+### First pageview - anonymous
+POST {{baseurl}}/track/v2/projects/{{projectid}}/customers/events
+Accept: application/json'
+Authorization: Token {{token}}
+Content-type: application/json
+
+{
+     "customer_ids": {
+          "cookie": "cookie-jst"
+     },
+     "properties": {
+        "location": "https://www.foo.bar/home/",
+        "referrer": "https://www.seznam.cz/",
+        "browser": "Opera", "device": "Other", "domain": "foo.bar", 
+        "os": "Windows"
+     },
+     "event_type": "page_visit"
+}
+
+
+### First product - anonymous
+POST {{baseurl}}/track/v2/projects/{{projectid}}/customers/events
+Accept: application/json'
+Authorization: Token {{token}}
+Content-type: application/json
+
+{
+     "customer_ids": {
+          "cookie": "cookie-jst"
+     },
+     "properties": {
+        "location": "https://www.foo.bar/products/voteplouch-xl",
+        "referrer": "https://www.foo.bar/home/",
+        "browser": "Opera", "device": "Other", "domain": "foo.bar", 
+        "os": "Windows"
+     },
+     "event_type": "page_visit"
+}
+
+### LOGIN
+POST {{baseurl}}/track/v2/projects/{{projectid}}/customers/events
+Accept: application/json'
+Authorization: Token {{token}}
+Content-type: application/json
+
+{
+     "customer_ids": {
+          "registered": "jiri.stepan@etnetera.cz",
+          "cookie":"cookie-jst"
+     },
+     "properties": {
+        "location": "https://www.foo.bar/login",
+       "browser": "Opera", "device": "Other", "domain": "foo.bar", 
+        "os": "Windows", 
+     },
+     "event_type": "page_visit"
+}
+
+###
+
+
+
